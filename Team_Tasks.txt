@@ -11,6 +11,7 @@ Daniel:
 	~	Dual ArrayLists
 -	Test and beautify
 	~	Make sure everything runs smoothly
+-	Update UML
 
 Myles:
 -	Recorder
