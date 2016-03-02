@@ -11,6 +11,23 @@ public class Series extends Media {
 	 */
 	private ArrayList<Episode> episodes;
 	
+	
+	/**
+	 * this is a test. 
+	 * this is a test
+	 * this is a tes
+	 * this is a te 
+	 * this is a t
+	 * this is a 
+	 * this is
+	 * this i 
+	 * this
+	 * thi
+	 * th
+	 * t
+	 * the end
+	 * /
+
 	/*
 	 * INCOMPLETE
 	 * 
