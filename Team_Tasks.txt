@@ -1,4 +1,9 @@
 Daniel:
+-	Lead
+	~	keep everyone on task
+	~	make sure everyone is involved
+	~	check with other team members before meetings to remind them of when and where they will meet and what they are
+		supposed to do
 -	Driver
 	~	Objective 1, 2, 6
 -	Database Class
@@ -8,12 +13,20 @@ Daniel:
 	~	Make sure everything runs smoothly
 
 Myles:
+-	Recorder
+	~	track the progress of the components
+	~	ensure proper integration of components
 -	Media classes
 	~	Objective 3
 	~	Media, Movie, Series, Episode
 	~	Parsers
 
 Tony:
+-	Monitor
+	~	check to makes sure everyone understands all aspects of the final design and code (right)
+-	Checker
+	~	double-check all parts of assignment before it is submitted
+	~	submit the assignment
 -	Comparator/Comparable
 	~	Objective 4
 
