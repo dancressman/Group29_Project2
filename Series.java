@@ -11,9 +11,9 @@ public class Series extends Media {
 	 */
 	private ArrayList<Episode> episodes;
 	
-	ljasdlfkjasdlkfjaslkdjf;asldkjf
-	;ljasd;lfkj;sladkjf
-	;lkjasd;flkjffjlkjdf
+	//ljasdlfkjasdlkfjaslkdjf;asldkjf
+	//;ljasd;lfkj;sladkjf
+	//;lkjasd;flkjffjlkjdf
 	/*
 	 * INCOMPLETE
 	 * 
