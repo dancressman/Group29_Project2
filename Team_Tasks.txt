@@ -9,10 +9,13 @@ Daniel:
 -	Database Class
 	~	Objective 5
 	~	Dual ArrayLists
+-	Compile all parts
+	~	Make connections between them
+	~	Modify all pieces to make so they run into one another
 -	Test and beautify
 	~	Make sure everything runs smoothly
 -	Update UML
--	Cover Page
+-	Build Cover Page
 
 Myles:
 -	Recorder
@@ -45,6 +48,9 @@ To do:
 -	Database Class
 	~	Objective 5
 	~	Dual ArrayLists
+-	Compile all parts
+	~	Make connections between them
+	~	Modify all pieces to make so they run into one another
 -	Test and beautify
 	~	Make sure everything runs smoothly
 
