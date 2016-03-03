@@ -192,16 +192,43 @@ public class Movie extends Media implements Comparable<Movie> {
 		this.releaseMethod = releaseMethod;
 	}
 	
-	/**
-	 * Compares to another movie.
-	 * 
-	 * @param otherMovie The movie to which it is being compared
-	 * @return This movie's placement in regards to the other movie
+	/** 
+	 * This method is used to sort Movie objects based on their title. 
+	 * <P> 
+	 * compareTo<br> 
+	 * This method is used by the Collections class to sort an ArrayList of Movie Objects based on their titles<br> 
+	 * @param             otherMovie      A series object to be compared to the Movie object called with compareTo                      
+	 * @return            int         The method returns an integer after comparing the two 
+	 * 								  objects and determining which title comes first alphabetically.
+	 *  
+	 * <dt><b>Conditions:</b> 
+	 * <dd>PRE  -         The two objects compared are unsorted in their ArrayList 
+	 * <dd>POST -         After running through the method, the Collections class will use 
+	 * 					  the returned value to sort the two objects in their ArrayList
 	 */
+	
+	@Override
 	public int compareTo(Movie otherMovie) {
-		// TODO: create method
 		
-		return 0;
+		int i = 0;
+		
+		/*checks for the the first character in a String that differs between two titles*/
+		while(otherMovie.getTitle().charAt(i) == this.title.charAt(i) && i < (this.title.length() - 1)){
+			++i;
+		}
+		
+		/*returns 0 if it is the same string*/
+		if (i == (this.title.length() - 1)){
+			return 0;
+		}
+		/*returns -1 if otherMovie comes after the compared movie alphabetically*/
+		else if (otherMovie.getTitle().charAt(i) > this.title.charAt(i)){
+			return -1;
+		}
+		/*returns 1 if otherMovie comes before the compared movie alphabetically*/
+		else{
+			return 1;
+		}
 	}
 	
 	/*
