@@ -12,6 +12,7 @@ Daniel:
 -	Test and beautify
 	~	Make sure everything runs smoothly
 -	Update UML
+-	Cover Page
 
 Myles:
 -	Recorder
