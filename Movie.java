@@ -30,7 +30,7 @@ public class Movie extends Media implements Comparable<Movie> {
 		
 		// Boolean determines if it has a releaseMethod
 		boolean hasReleaseMethod = false;
-		if (temp[temp.length - 1].equals("TV)") || temp[temp.length - 1].equals("V)"))
+		if (temp[temp.length - 1].startsWith("TV)") || temp[temp.length - 1].startsWith("V)"))
 			hasReleaseMethod = true;
 		
 		/*
@@ -45,6 +45,7 @@ public class Movie extends Media implements Comparable<Movie> {
 
 				temp[1] = temp[temp.length - 2];
 				temp[2] = temp[temp.length - 1];
+				
 			}
 			// Case if there is not
 			else if (!hasReleaseMethod) {
@@ -53,7 +54,9 @@ public class Movie extends Media implements Comparable<Movie> {
 				}
 
 				temp[1] = temp[temp.length - 1];
+				
 			}
+			hasReleaseMethod = false;
 		}
 		
 		// This builds the actual pieces array that will be used to parse
