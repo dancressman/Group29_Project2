@@ -2,32 +2,17 @@ import java.util.ArrayList;
 
 public class Series extends Media {
 
-	/** Stores the title of the movie. */
+	/** Stores the title of the series. */
 	private String title;
-	/** Stores the release year of the movie. */
-	private String year;
+	/** Stores the release year of the series. */
+	private String beginYear;
+	/** Stores the release year of the series. */
+	private String endYear;
 	/**
 	 * Stores the episodes
 	 */
-	private ArrayList<Episode> episodes;
 	
 	
-	/**
-	 * this is a test. 
-	 * this is a test
-	 * this is a tes
-	 * this is a te 
-	 * this is a t
-	 * this is a 
-	 * this is
-	 * this i 
-	 * this
-	 * thi
-	 * th
-	 * t
-	 * the end
-	 * /
-
 	/*
 	 * INCOMPLETE
 	 * 
@@ -35,7 +20,21 @@ public class Series extends Media {
 	 */
 	
 	public Series(String data) {
+		// Creates an array of strings to hold the pieces
+		String[] pieces = new String[5];
 		
+		// Splits the data into pieces and stores them in an array
+		String[] temp = data.split("\\(");
+		
+		//Checks to see if the line doesnt contain an episode, if it doesnt then its a series title
+		if (!data.contains("{")){
+			pieces[0] = temp[0];
+			pieces[1] = temp[1];
+			
+			this.title = pieces[0].substring(1, pieces[0].length() - 2);
+			this.beginYear = pieces[1].substring(pieces[1].length() - 9, pieces[1].length()-5);
+			this.endYear = pieces[1].substring(pieces[1].length() - 4, pieces[1].length());
+		}
 	}
 	
 	public Series(String title, String year, ArrayList<Episode> episodes) {
@@ -43,11 +42,15 @@ public class Series extends Media {
 	}
 	
 	public String getTitle() {
-		return null;
+		return title;
 	}
 	
-	public String getYear() {
-		return null;
+	public String getBeginYear() {
+		return beginYear;
+	}
+	
+	public String getEndYear() {
+		return endYear;
 	}
 	
 	public ArrayList<Episode> getEpisodes() {
