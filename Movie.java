@@ -195,8 +195,11 @@ public class Movie extends Media implements Comparable<Movie> {
 	/** 
 	 * This method is used to sort Movie objects based on their title. 
 	 * <P> 
-	 * compareTo<br> 
-	 * This method is used by the Collections class to sort an ArrayList of Movie Objects based on their titles<br> 
+	 * Algorithm<br> 
+	 * 1: Searches through each string for the first differing character<br>
+	 * 2: Compares the two characters to see with comes first alphabetically or returns 0 if they are the same string<br>
+	 * 3: Returns 1 or -1 based on which String comes first alphabetically<br>
+	 * 
 	 * @param             otherMovie      A series object to be compared to the Movie object called with compareTo                      
 	 * @return            int         The method returns an integer after comparing the two 
 	 * 								  objects and determining which title comes first alphabetically.

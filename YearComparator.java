@@ -16,8 +16,11 @@ public class YearComparator implements Comparator<Media> {
 	/** 
 	 * This method is used to sort Media objects based on their release date. 
 	 * <P> 
-	 * compare<br> 
-	 * This method if used by the Collections class to sort an ArrayList of Media Objects based on their release date.<br> 
+	 * Algorithm<br> 
+	 * 1: Searches through each string for the first differing character<br>
+	 * 2: Compares the two characters to see with comes first chronologically or returns 0 if they are the same string<br>
+	 * 3: Returns 1 or -1 based on which String comes first chronologically<br>
+	 * 
 	 * @param             media1      A Media object from an ArrayList to be compared to another
 	 * @param 			  media2      Another Media object from an ArrayList                        
 	 * @return            int         The method returns an integer after comparing the two 
