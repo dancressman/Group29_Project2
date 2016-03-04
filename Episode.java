@@ -42,8 +42,11 @@ public class Episode {
 	/** 
 	 * This method is used to sort Episode objects based on their title. 
 	 * <P> 
-	 * compareTo<br> 
-	 * This method is used by the Collections class to sort an ArrayList of Episode Objects based on their titles<br> 
+	 * Algorithm<br> 
+	 * 1: Searches through each string for the first differing character<br>
+	 * 2: Compares the two characters to see with comes first alphabetically or returns 0 if they are the same string<br>
+	 * 3: Returns 1 or -1 based on which String comes first alphabetically<br> 
+	 * 
 	 * @param             otherEpisode      A series object to be compared to the Episode object called with compareTo                      
 	 * @return            int         The method returns an integer after comparing the two 
 	 * 								  objects and determining which title comes first alphabetically.
