@@ -13,8 +13,9 @@ public class Episode extends Media {
 		String[] temp2 = data.split("\\{"); //Split for episode title
 		String[] temp3 = data.split("#"); // Split for episode number and season number
 		
+		//If current line is an episode, it will contain a "{"
 		if (data.contains("{")){
-
+			
 			if (data.contains("#")){
 				this.season = temp3[1].substring(temp3[1].indexOf(".") - 1, temp3[1].indexOf("."));
 				this.number = temp3[1].substring(temp3[1].indexOf(".") + 1, temp3[1].indexOf(")"));
