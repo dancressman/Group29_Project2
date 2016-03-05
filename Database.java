@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Database {
 
@@ -380,6 +381,17 @@ public class Database {
 		return newEpisode;
 	}
 	
+	public void sortByTitle() {
+		Collections.sort(movieList);
+	}
+	
+	public void sortByYear() {
+		YearComparator c = new YearComparator();
+		
+		Collections.sort(movieList, c);
+		Collections.sort(seriesList, c);
+	}
+	
 	/** 
 	 * Removes movie from the database.
 	 * 
@@ -394,18 +406,18 @@ public class Database {
 	 * 
 	 * @param chosenSeries The series chosen for removal.
 	 */
-	public void remove(Series chosenSeries) {
+	public void removeSeries(Series chosenSeries) {
 		seriesList.remove(chosenSeries);
 	}
 	
-	/** 
-	 * Removes episode from a series in the database.
-	 * 
-	 * @param chosenEpisode The episode chosen for removal.
-	 */
-	public void remove(Episode chosenEpisode, Series series) {
-		series.removeEpisode(chosenEpisode);
-	}
+//	/** 
+//	 * Removes episode from a series in the database.
+//	 * 
+//	 * @param chosenEpisode The episode chosen for removal.
+//	 */
+//	public void remove(Episode chosenEpisode, Series series) {
+//		series.removeEpisode(chosenEpisode);
+//	}
 	
 	/*
 	 * (non-Javadoc)
@@ -421,7 +433,7 @@ public class Database {
 		
 		// If there are movies in the database, it runs through them all
 		if (movieList.size() > 0) {
-			databaseString += "MOVIES:\n";
+			databaseString += "\nMOVIES:\n";
 
 			for (Movie item : movieList) {
 				++moviePosition;
@@ -438,10 +450,14 @@ public class Database {
 				databaseString += seriesPosition + ". " + item.toString() + "\n";
 				
 				for (Episode episode : item.getEpisodes()) {
-					databaseString += episode.season + "." + episode.number + ". " 
-					+ episode.toString() + "\n";
+					databaseString += "\t" + episode.getSeason() + "." + 
+							episode.getNumber() + ". " + episode.toString() + "\n";
 				}
 			}
+		}
+		
+		if (movieList.size() == 0 && seriesList.size() == 0) {
+			databaseString += "\nNO MATCHES";
 		}
 		
 		return databaseString;
