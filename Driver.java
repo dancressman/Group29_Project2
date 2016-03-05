@@ -89,7 +89,6 @@ public class Driver {
 		return userChoice;
 	}
 	
-	
 	/**
 	 * This method directs the user's choice to the appropriate method for
 	 * resolution.
@@ -249,8 +248,7 @@ public class Driver {
 	 * @return Database is returned so it can be used by the removeMovie
 	 * method.
 	 * @throws IOException 
-	 */
-	
+	 */	
 	public static Database searchHub(Scanner scnr, Database database, 
 			Database matchesDatabase) throws IOException {
 		
@@ -499,6 +497,11 @@ public class Driver {
 		return matchesDatabase;
 	}
 	
+	/**
+	 * QUESTION 1 determines what Media is being searched for
+	 * @param scnr
+	 * @return answer
+	 */
 	public static int searchQuestion1(Scanner scnr) {
 		// QUESTION 1 determines what Media is being searched for
 		System.out.println("Searched media: ");
@@ -539,6 +542,11 @@ public class Driver {
 		return mediaSwitch;
 	}
 	
+	/**
+	 * QUESTION 2 determines which parameters are used
+	 * @param scnr
+	 * @return answer
+	 */
 	public static int searchQuestion2(Scanner scnr) {
 		// QUESTION 2 determines which parameters are used
 		System.out.println("Seach parameters: ");
@@ -572,6 +580,11 @@ public class Driver {
 		return parameterSwitch;
 	}
 	
+	/**
+	 * Optional QUESTION 3 asks if they want exact matches for title searches
+	 * @param scnr
+	 * @return answer
+	 */
 	public static int searchQuestion3(Scanner scnr) {
 		// Optional QUESTION 3 asks if they want exact matches for title searches
 		System.out.println("Search for exact or partial matches? ");
@@ -599,6 +612,11 @@ public class Driver {
 		return precisionSwitch;
 	}
 
+	/**
+	 * Optional QUESTON 4 asks if they want to include episodes in search
+	 * @param scnr
+	 * @return answer
+	 */
 	public static int searchQuestion4(Scanner scnr) {
 		// Optional QUESTON 4 asks if they want to include episodes in search
 		System.out.println("Include episode titles in search and output?");
@@ -814,6 +832,4 @@ public class Driver {
 //			System.out.println("Invalid input. Returning to main menu.");
 //		}
 //	}
-	
-	// TODO: Add removal methods
 }
