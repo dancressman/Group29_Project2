@@ -33,8 +33,6 @@ public class Driver {
 		// searches.
 		Database matchesDatabase = new Database();
 
-
-
 		// Creates a scanner, to be used for user input
 		Scanner scnr = new Scanner(System.in);
 
@@ -74,16 +72,19 @@ public class Driver {
 		// This integer will reflect the user's choice
 		int userChoice = 0;
 
-		// User's choices are read to them
-		System.out.println("\nPlease choose a number, or input \"-1\" to finish.");
-		System.out.println("1. Add items from unparsed file.");
-		System.out.println("2. Search for media in the database.");
-		System.out.println("3. Add media to the database.");
-//		System.out.println("4. Remove media from the database.");
+		while (userChoice == 0) {
+			// User's choices are read to them
+			System.out.println("\nPlease choose a number, or input \"-1\" to finish.");
+			System.out.println("1. Add items from unparsed file.");
+			System.out.println("2. Search for media in the database.");
+			System.out.println("3. Add media to the database.");
+			// System.out.println("4. Remove media from the database.");
 
-		// User choice stored from chosen integer
-		userChoice = scnr.nextInt();
-		scnr.nextLine();
+			// User choice stored from chosen integer
+			if (scnr.hasNextInt())
+				userChoice = scnr.nextInt();
+			scnr.nextLine();
+		}
 
 		return userChoice;
 	}
