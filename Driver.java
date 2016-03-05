@@ -223,7 +223,7 @@ public class Driver {
 				Series series = database.addUnparsedSeries(nextline);
 				nextline = br.readLine();
 				
-				while (nextline.contains("{")) {
+				while (nextline != null && nextline.contains("{")) {
 					database.addUnparsedEpisode(nextline, series);
 					nextline = br.readLine();
 				}
@@ -436,7 +436,7 @@ public class Driver {
 		}
 		
 		// SORTS MATCHES
-		System.out.println("Sort by:");
+		System.out.println("Sort by");
 		System.out.println("1. Title");
 		System.out.println("2. Year");
 		String sortInput = scnr.nextLine();
@@ -560,7 +560,6 @@ public class Driver {
 		System.out.println("Search for exact or partial matches? ");
 		System.out.println("1. Exact");
 		System.out.println("2. Partial");
-		System.out.println("3. Both");
 		String precisionInput = scnr.nextLine();
 		
 		/*
@@ -578,10 +577,6 @@ public class Driver {
 		else if (precisionInput.equals("2") || precisionInput.equalsIgnoreCase("P") 
 				|| precisionInput.equalsIgnoreCase("PARTIAL")) {
 			precisionSwitch = 2;
-		}
-		else if (precisionInput.equals("3") || precisionInput.equalsIgnoreCase("B") 
-				|| precisionInput.equalsIgnoreCase("BOTH")) {
-			precisionSwitch = 3;
 		}
 		
 		return precisionSwitch;
