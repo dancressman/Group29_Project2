@@ -67,27 +67,33 @@ public class Series extends Media implements Comparable<Series> {
 	}
 	
 	public ArrayList<Episode> getEpisodes() {
-		return null;
+		return episodes;
 	}
 	
 	public void setTitle(String title) {
-		
+		this.title = title;
 	}
 	
-	public void setYear(String year) {
-		
+	public void setBeginYear(String beginYear) {
+		this.beginYear = beginYear;
+	}
+	
+	public void setEndYear(String endYear) {
+		this.endYear = endYear;
 	}
 	
 	public void setEpisodes(ArrayList<Episode> episodes) {
-		
+		this.episodes = episodes;
 	}
 	
 	public void addEpisode(Episode newEpisode) {
-		
+		this.episodes.add(newEpisode);
 	}
 	
 	public void addEpisode(String title, String year, String season, String number, boolean suspendedStatus) {
+		Episode newEpisode = new Episode(title, year, season, number, suspendedStatus);
 		
+		this.episodes.add(newEpisode);
 	}
 	
 	@Override
@@ -114,7 +120,22 @@ public class Series extends Media implements Comparable<Series> {
 	}
 	
 	public String toString(){
-		return null;
+		// Begin seriesString
+		String seriesString = "SERIES: ";
+
+		// Add title to string
+		seriesString += this.title;
+
+		// Add begin year to string
+		seriesString += " (" + this.beginYear;
+
+		// Add end year to string
+		if (this.endYear.contains("?"))
+			seriesString += "UNSPECIFIED";
+		else
+			seriesString += this.endYear + ")";
+
+		return seriesString;
 	}
 
 }
