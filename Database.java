@@ -292,7 +292,7 @@ public class Database {
 		// Searches for potential matches in database
 		for (Series potentialMatch : seriesList) {
 			// Stores potential match year
-			String matchBeginYear = potentialMatch.getBeginYear();
+			String matchBeginYear = potentialMatch.getYear();
 			String matchEndYear = potentialMatch.getEndYear();
 			
 			// Converts years to int for finding Series ranges
