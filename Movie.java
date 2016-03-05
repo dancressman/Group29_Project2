@@ -1,4 +1,3 @@
-
 public class Movie extends Media implements Comparable<Movie> {
 	
 	/** Stores the title of the movie. */
@@ -237,9 +236,10 @@ public class Movie extends Media implements Comparable<Movie> {
 		}
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * This method takes the object information and turns it into a string.
+	 * 
+	 * @return seriesString The returned movie as a string.
 	 */
 	@Override
 	public String toString() {
