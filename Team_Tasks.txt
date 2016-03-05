@@ -1,3 +1,5 @@
+Daniel Cressman, Myles Glass, Tony Ragle
+
 Daniel:
 -	Lead
 	~	keep everyone on task
@@ -12,8 +14,6 @@ Daniel:
 -	Compile all parts
 	~	Make connections between them
 	~	Modify all pieces to make so they run into one another
--	Test and beautify
-	~	Make sure everything runs smoothly
 -	Update UML
 -	Build Cover Page
 
@@ -34,25 +34,3 @@ Tony:
 	~	submit the assignment
 -	Comparator/Comparable
 	~	Objective 4
-
-
-To do:
--	Driver
-	~	Objective 1, 2, 6
--	Media classes
-	~	Objective 3
-	~	Media, Movie, Series, Episode
-	~	Parsers
--	Comparator/Comparable
-	~	Objective 4
--	Database Class
-	~	Objective 5
-	~	Dual ArrayLists
--	Compile all parts
-	~	Make connections between them
-	~	Modify all pieces to make so they run into one another
--	Test and beautify
-	~	Make sure everything runs smoothly
-
-Finished:
--	None
