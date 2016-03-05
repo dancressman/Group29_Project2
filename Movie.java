@@ -30,7 +30,7 @@ public class Movie extends Media implements Comparable<Movie> {
 		
 		// Boolean determines if it has a releaseMethod
 		boolean hasReleaseMethod = false;
-		if (temp[temp.length - 1].equals("TV)") || temp[temp.length - 1].equals("V)"))
+		if (temp[temp.length - 1].startsWith("TV)") || temp[temp.length - 1].startsWith("V)"))
 			hasReleaseMethod = true;
 		
 		/*
@@ -45,6 +45,7 @@ public class Movie extends Media implements Comparable<Movie> {
 
 				temp[1] = temp[temp.length - 2];
 				temp[2] = temp[temp.length - 1];
+				
 			}
 			// Case if there is not
 			else if (!hasReleaseMethod) {
@@ -53,7 +54,9 @@ public class Movie extends Media implements Comparable<Movie> {
 				}
 
 				temp[1] = temp[temp.length - 1];
+				
 			}
+			hasReleaseMethod = false;
 		}
 		
 		// This builds the actual pieces array that will be used to parse
@@ -240,21 +243,25 @@ public class Movie extends Media implements Comparable<Movie> {
 	 */
 	@Override
 	public String toString() {
-		//Add title to string
-		String movieString = this.title;
+		// Begin movieString
+		String movieString = "MOVIE";
 		
-		//Add year to string
+		// Add releaseMethod, if applicable
+		if (this.releaseMethod != null) {
+			movieString += " (" + releaseMethod + ")";
+		}
+		
+		// Add title to string
+		movieString += ": " + this.title;
+		
+		// Add year to string
 		movieString += " (" + this.year;
 		
-		//Add romanNumeral, if applicable
+		// Add romanNumeral, if applicable
 		if (this.romanNumeral != null)
 			movieString += "/" + romanNumeral + ")";
 		else
 			movieString += ")";
-		
-		//Add releaseMethod, if applicable
-		if (this.releaseMethod != null)
-			movieString += " (" + releaseMethod + ")";
 		
 		return movieString;
 	}
