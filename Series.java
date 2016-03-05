@@ -37,10 +37,18 @@ public class Series extends Media {
 		}
 	}
 	
-	public Series(String title, String year, ArrayList<Episode> episodes) {
+	public Series(String title, String beginYear, String endYear,ArrayList<Episode> episodes) {
 		
 	}
 	
+	public Series copyOf() {
+		ArrayList<Episode> blankEpisodes = new ArrayList<Episode>();
+
+		Series copy = new Series(title, beginYear, endYear, blankEpisodes);
+
+		return copy;
+
+	}
 	public String getTitle() {
 		return title;
 	}
