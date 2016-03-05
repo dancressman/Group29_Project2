@@ -1,6 +1,7 @@
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -246,10 +247,15 @@ public class Driver {
 	 * @param matchesDatabase Database of search matches
 	 * @return Database is returned so it can be used by the removeMovie
 	 * method.
+	 * @throws IOException 
 	 */
 	
 	public static Database searchHub(Scanner scnr, Database database, 
-			Database matchesDatabase) {
+			Database matchesDatabase) throws IOException {
+		
+		// Clears matchesDatabase
+		matchesDatabase = new Database(); 
+		
 		/*
 		 * QUESTION 1 determines what Media is being searched for
 		 * 
@@ -309,7 +315,6 @@ public class Driver {
 		// SEARCHING
 		String titleSearch; // Holder for Title
 		String yearSearchFull; // Holder for Year
-		matchesDatabase = new Database(); // Clears matchesDatabase
 		
 		// TITLE SEARCH
 		if (parameterSwitch == 1 || parameterSwitch == 3) {
@@ -430,6 +435,26 @@ public class Driver {
 			}
 		}
 		
+		// SORTS MATCHES
+		System.out.println("Sort by:");
+		System.out.println("1. Title");
+		System.out.println("2. Year");
+		String sortInput = scnr.nextLine();
+		
+		// Sorts by Title
+		if (sortInput.equals("1") || sortInput.equalsIgnoreCase("T")
+				|| sortInput.equalsIgnoreCase("TITLE")) {
+			matchesDatabase.sortByTitle();
+		}
+		// Sorts by Year
+		if (sortInput.equals("2") || sortInput.equalsIgnoreCase("Y") 
+				|| sortInput.equalsIgnoreCase("YEAR")) {
+			matchesDatabase.sortByYear();
+		}
+		
+		// PRINTS MATCHES
+		System.out.println(matchesDatabase.toString());
+		
 		// Output if any required fields are invalid.
 		if (mediaSwitch == 0 
 				|| parameterSwitch == 0 
@@ -437,6 +462,21 @@ public class Driver {
 						&& precisionSwitch == 0)
 				|| ((mediaSwitch == 2 || mediaSwitch == 3) && episodeSwitch == 0)) {
 			System.out.println("One or more inputs were invalid.");
+		}
+		
+		// SAVING TO FILE
+		System.out.println("Save file? (Y/N) ");
+		String saveInput = scnr.nextLine();
+		
+		if (saveInput.equalsIgnoreCase("Y") || saveInput.equalsIgnoreCase("YES")) {
+			System.out.println("File name: ");
+			String outfileName = scnr.nextLine();
+			
+			FileWriter outfile = new FileWriter(outfileName);
+			BufferedWriter bw = new BufferedWriter(outfile);
+			bw.write(matchesDatabase.toString());
+			bw.newLine();
+			bw.close();
 		}
 		
 		return matchesDatabase;
@@ -580,7 +620,6 @@ public class Driver {
 	 * @param scnr The scanner
 	 * @param database The main Database
 	 */
-	
 	public static void addHub(Scanner scnr, Database database) {
 		// Asks for which type of Media they are choosing
 		System.out.println("What kind of media would you like to add?");
@@ -612,6 +651,7 @@ public class Driver {
 			System.out.println("Invalid input. Returning to main menu.");
 		}
 	}
+	
 	
 	/**
 	 * This method adds a Movie to the database.
@@ -647,6 +687,7 @@ public class Driver {
 		database.addMovie(newMovie);
 	}
 	
+	
 	/**
 	 * This method adds a Series to the database.
 	 * 
@@ -674,6 +715,7 @@ public class Driver {
 		database.addSeries(newSeries);
 	}
 	
+	
 	/**
 	 * This method adds an Episode to a Series in the database.
 	 * 
@@ -687,8 +729,7 @@ public class Driver {
 		String seriesName = scnr.nextLine();
 		
 		//Finds the Series in the database
-		// TODO: Add find Series method
-		Series series = null;
+		Series series = database.searchSeriesTitle(seriesName, false).get(0);
 		
 		// Title is entered
 		System.out.print("Please enter the title of the episode you wish to add: ");
@@ -725,6 +766,7 @@ public class Driver {
 		series.addEpisode(newEpisode);
 	}
 	
+
 	/**
 	 * UNUSED METHOD
 	 * This method removes a movie from the Database.
