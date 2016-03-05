@@ -5,7 +5,7 @@ public class Series extends Media implements Comparable<Series> {
 	/** Stores the title of the series. */
 	private String title;
 	/** Stores the release year of the series. */
-	private String beginYear;
+	private String year;
 	/** Stores the release year of the series. */
 	private String endYear;
 	/**
@@ -32,16 +32,16 @@ public class Series extends Media implements Comparable<Series> {
 			pieces[1] = temp[1];
 			
 			this.title = pieces[0].substring(1, pieces[0].length() - 2);
-			this.beginYear = pieces[1].substring(pieces[1].length() - 9, pieces[1].length()-5);
+			this.year = pieces[1].substring(pieces[1].length() - 9, pieces[1].length()-5);
 			this.endYear = pieces[1].substring(pieces[1].length() - 4, pieces[1].length());
 		
 		}
 		this.episodes = new ArrayList<Episode>();
 	}
 	
-	public Series(String title, String beginYear, String endYear, ArrayList<Episode> episodes) {
+	public Series(String title, String year, String endYear, ArrayList<Episode> episodes) {
 		this.title = title;
-		this.beginYear = beginYear;
+		this.year = year;
 		this.endYear = endYear;
 		this.episodes = episodes;
 	}
@@ -49,7 +49,7 @@ public class Series extends Media implements Comparable<Series> {
 	public Series copyOf() {
 		ArrayList<Episode> blankEpisodes = new ArrayList<Episode>();
 
-		Series copy = new Series(title, beginYear, endYear, blankEpisodes);
+		Series copy = new Series(title, year, endYear, blankEpisodes);
 
 		return copy;
 
@@ -58,8 +58,8 @@ public class Series extends Media implements Comparable<Series> {
 		return title;
 	}
 	
-	public String getBeginYear() {
-		return beginYear;
+	public String getYear() {
+		return year;
 	}
 	
 	public String getEndYear() {
@@ -74,8 +74,8 @@ public class Series extends Media implements Comparable<Series> {
 		this.title = title;
 	}
 	
-	public void setBeginYear(String beginYear) {
-		this.beginYear = beginYear;
+	public void setYear(String year) {
+		this.year = year;
 	}
 	
 	public void setEndYear(String endYear) {
@@ -127,11 +127,11 @@ public class Series extends Media implements Comparable<Series> {
 		seriesString += this.title;
 
 		// Add begin year to string
-		seriesString += " (" + this.beginYear;
+		seriesString += " (" + this.year;
 
 		// Add end year to string
 		if (this.endYear.contains("?"))
-			seriesString += "UNSPECIFIED";
+			seriesString += "-UNSPECIFIED)";
 		else
 			seriesString += this.endYear + ")";
 
