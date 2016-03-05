@@ -11,12 +11,6 @@ public class Database {
 	 * The list of Series in the database
 	 */
 	ArrayList<Series> seriesList;
-	/**
-	 * A placeholder for Episodes should they need to be put in.
-	 * 
-	 * Mostly used in searching.
-	 */
-	ArrayList<Episode> episodeHolder;
 	
 	/**
 	 * Creates a new Database.
