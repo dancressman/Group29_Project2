@@ -213,7 +213,7 @@ public class Database {
 			// Converts years to int for finding Series ranges
 			int matchBeginYearInt = Integer.parseInt(matchBeginYear);
 			int matchEndYearInt = Integer.MAX_VALUE;
-			if (matchEndYear != "????") // ???? means it HAS NOT ENDED - MAX_VALUE
+			if (!matchEndYear.contains("?")) // ???? means it HAS NOT ENDED - MAX_VALUE
 				matchEndYearInt = Integer.parseInt(matchEndYear);
 			int yearSearchInt = Integer.parseInt(yearSearch);
 			
@@ -449,9 +449,11 @@ public class Database {
 				++seriesPosition;
 				databaseString += seriesPosition + ". " + item.toString() + "\n";
 				
-				for (Episode episode : item.getEpisodes()) {
-					databaseString += "\t" + episode.getSeason() + "." + 
-							episode.getNumber() + ". " + episode.toString() + "\n";
+				if (item.getEpisodes().size() > 0) {
+					for (Episode episode : item.getEpisodes()) {
+						databaseString += "\t" + episode.getSeason() + "." + episode.getNumber() + ". "
+								+ episode.toString() + "\n";
+					}
 				}
 			}
 		}
