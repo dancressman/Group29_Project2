@@ -133,7 +133,7 @@ public class Series extends Media implements Comparable<Series> {
 		if (this.endYear.contains("?"))
 			seriesString += "-UNSPECIFIED)";
 		else
-			seriesString += this.endYear + ")";
+			seriesString += "-" + this.endYear + ")";
 
 		return seriesString;
 	}
